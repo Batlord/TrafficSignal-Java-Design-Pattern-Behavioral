@@ -5,7 +5,7 @@ public class TrafficSignal extends Thread
 	private final static int BUTTON_THRESHOLD_IN_SECONDS = 2;
 	
 	private TrafficSignalState state;
-	private int stateSecondsRemaining; 
+	int stateSecondsRemaining; 
 	
 	public TrafficSignal()
 	{
@@ -67,11 +67,12 @@ public class TrafficSignal extends Thread
 		}	
 	}
 
-	private void switchToState(TrafficSignalState state)
+	void switchToState(TrafficSignalState state)
 	{
 		System.out.println("Traffic signal turns "+state);
 		System.out.flush();
 		this.state = state;
 		this.stateSecondsRemaining = this.state.getDurationInSeconds();		
 	}
+
 }
